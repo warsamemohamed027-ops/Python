@@ -6,11 +6,12 @@
  
 print ("hello my name is Mohamed Warsame")
 
-## Moduuli 2
+## Moduuli 1 +2
 
-Tein tehtävät 1, 2 ja 3.
+Tein tehtävät 1, 2 
 
-Tehtävän 4 tein osittain, mutta ongelmaksi jäi pelkkien grammojen laskeminen oikein.
+## Moduuli 3
+tein tehtävät 1-6
+## Moduuli 4
+tein tehtävät 1-4 
 
-## Moduuli 3 ja niin edelleen...
-tein tehtävät 1,2.3
