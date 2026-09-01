@@ -1,0 +1,8 @@
+name=input("what is ur name")
+age= input("what is ur age")
+food=input("what is ur favorite food")
+color=input("what is ur favorite color")
+print(f"Your name is: {name}")
+print(f"Your age is: {age}")
+print(f"Your favorite food is: {food}")
+print(f"Your favorite color is: {color}")
