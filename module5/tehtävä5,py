@@ -1,0 +1,14 @@
+correct_username= "admin"
+correct_password="admin1"
+attempts=0
+while attempts < 5:
+ username=input("what is the username")
+ password=input("what is the password")
+
+ if username== correct_username and password== correct_password:
+            print("welcome")
+            break
+ else:
+       print("access denied")
+
+    
