@@ -1,0 +1,28 @@
+name= input("what is ur name")
+age= int(input("what is ur age"))
+
+print("hello your name is",name,"and your age is",age)
+if age < 12:
+     print("you are a minor")
+     exit()
+print("welcome")
+
+
+while True:
+     print("welcome to the main menu")
+     command= input("enter a command")
+     if command == "lopeta":
+      break
+     
+     elif command== "start": 
+      print("you enter the museum and discover that the most valuable artifact has been stolen")
+
+     elif command== "search":
+       print("you search the museum for the clue")
+
+     elif command== "talk":
+      print("you talk to the security guard. He seems nervous")
+
+     elif command== "accuse":
+      print("choose who u think the thief is")
+          

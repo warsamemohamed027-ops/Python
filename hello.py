@@ -1,16 +1,9 @@
-# print("hello world")
-# print("hello mohamed")
-
-
-import math
-
-# radius = float(input("Enter the radius of a circle: "))
-# circumference= 2 * math.pi * radius
-# print(f"The circumference is: {circumference}")
-# radius = float(input("Enter the radius of a circle: "))
-# circumference = 2 * math.pi * radius
-# print(f"the circumference is : {circumference}")
-length = float(input("enter the length of a rectangle"))
-width=float(input("enter the width of a rectangle"))
-area = length * width
-print(f"the area of a rectangle is : {area}")
+secret_number = 7
+number = int(input("Guess the secret number between 1 and 10: "))
+while number <= 7:
+   print("too low")
+   number = int(input("Guess the secret number between 1 and 10: "))
+if number > 7:
+   print("too high")
+else:
+    print("correct the answer was 7:")
