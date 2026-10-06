@@ -1,28 +1,84 @@
-name= input("what is ur name")
-age= int(input("what is ur age"))
+from functions import *
+from classes   import Player, Item, Room
 
+name= input("what is ur name") 
+age= int(input("what is ur age"))
+print()
+player = Player(name)
+
+print()
 print("hello your name is",name,"and your age is",age)
+print()
 if age < 12:
      print("you are a minor")
      exit()
-print("welcome")
 
+# objects
+player = Player(name)
+
+item1 = Item("working gloves", 0.2)
+item2 = Item("access card", 2)
+item3 = Item("security log", 5)
+
+entrance = Room("Entrance", None)
+main_hall = Room("Main Hall", None)
+security_desk = Room("Security Desk", item3)
+security_room = Room("Security Room", item2)
+diamond_display = Room("Diamond Display", item1)
+
+rooms = [entrance, main_hall, security_desk, security_room, diamond_display]
+
+game_started = False
 
 while True:
-     print("welcome to the main menu")
-     command= input("enter a command")
-     if command == "lopeta":
-      break
-     
-     elif command== "start": 
-      print("you enter the museum and discover that the most valuable artifact has been stolen")
+    print("Welcome to the main menu")
+    print()
 
-     elif command== "search":
-       print("you search the museum for the clue")
+    if game_started == False:
+        print("1. Start")
+        print("2. Quit")
 
-     elif command== "talk":
-      print("you talk to the security guard. He seems nervous")
+    else:
+        print("1. Talk")
+        print("2. Search")
+        print("3. move")
+        print("4. collect item")
+        print("5.clues")
+        print("6.accuse")
+        print("7. quit")
 
-     elif command== "accuse":
-      print("choose who u think the thief is")
-          
+    print()
+    command = input("Enter a command: ")
+
+    if game_started == False:
+
+        if command == "1":
+            start_game()
+            game_started = True
+
+        elif command == "2":
+            break
+
+    else:
+
+        if command == "1":
+            talk_to_people(player,rooms)
+
+        elif command == "2":
+            search_museum(player, rooms,clues)
+
+        elif command == "3":
+             move_player(player,rooms)
+
+        elif command == "4":
+            collect_item(player)
+
+        elif command == "5":
+           show_clues()
+
+        elif command=="6":
+           accuse_someone()
+
+        elif command=="7":
+         break
+ 
