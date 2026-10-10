@@ -2,13 +2,7 @@ clues = []
 
 
 def start_game():
-    
-    print("You enter the museum and notice that something is wrong.")
-    print("\nThe most valuable diamond in the museum has been stolen.")
-    
-    print("Your job is to investigate the museum, collect clues,")
-    print("\ntalk to the suspects, and find out who stole the diamond.")
-    
+    print("You are now ready to investigate the museum and find out who stole the diamond.")
     print("What do you want to do first?")
 
 def search_museum(player, rooms, clues):
@@ -30,6 +24,11 @@ def search_museum(player, rooms, clues):
         print("The log shows the scheduled locations of the staff.")
         print()
         print("Technician - Security Room, 7:00-7:20")
+        print()
+        print("security guard - Security Desk, 7:00-7:30")
+        print()
+        print("museum employee - Main Hall, 7:00-7:30")
+        print()
         print("You remember the technician said he was working around the diamond display.")
         print("Something doesn't add up.")
         print()
@@ -91,7 +90,8 @@ def talk_to_people(player,rooms):
         print("I saw someone near the diamond display", "He says.")
         print("They used an access card to enter the restricted area.")
         print()
-        clues.append("access card clue")
+        if "access card clue" not in clues:
+            clues.append("access card clue")
         print("Clue collected: someone used an access card to get close to the diamond.")
 
     elif person == "2":
@@ -103,7 +103,8 @@ def talk_to_people(player,rooms):
         print('"The security system was also put into maintenance mode."')
         print("You wonder who would do that.")
         print()
-        clues.append("maintenance mode clue")
+        if "maintenance mode clue" not in clues:
+         clues.append("maintenance mode clue")
         print("Clue collected: the security was in maintenance mode")
 
     elif person == "3":
@@ -114,7 +115,8 @@ def talk_to_people(player,rooms):
         print("I was only interested in the diamond", "He says.")
         print()
         print("I was here yesterday at 7.30pm; it was still there when I left.")
-        clues.append("timing clue")
+        if "timing clue" not in clues:
+         clues.append("timing clue")
         print()
         print("Clue collected: The diamond was still there at 7.30pm,30 minutes before the museum closes.")
 
@@ -125,7 +127,8 @@ def talk_to_people(player,rooms):
         print("I noticed one of my working gloves was missing.")
         print()
         print("You wonder if the thief used the gloves to steal the diamond.")
-        clues.append("working gloves")
+        if "working gloves" not in clues:
+            clues.append("working gloves")
         print()
         print("Clue collected: Working gloves.")
 
@@ -182,6 +185,7 @@ def accuse_someone():
         print("And he had access to both the security system and the restricted area.")
         print()
         print("congratulations! you have solved the case.")
+        exit()
 
     else:
         print("Invalid choice.")
@@ -232,10 +236,22 @@ def move_player(player,rooms):
         player.move(rooms[4])
         print("You arrive at the Diamond display.")
         print()
-      
+    
 
 
+
+    
 def collect_item(player):
-    player.collect_item()
-    print("Item collected!")
+    if player.current_room is None:
+        print("You need to move to a room first.")
+        return
+
+    if player.current_room.item is not None:
+        item = player.current_room.item
+        player.collect_item()
+        print("You collected:", item.name)
+    else:
+        print("There is no item to collect here.")
+
+    
           

@@ -1,5 +1,15 @@
 from functions import *
 from classes   import Player, Item, Room
+from pathlib import Path
+
+def read_text_file(filename):
+    file_path = Path(__file__).parent / filename
+
+    with open(file_path, "r", encoding="utf-8") as file:
+        text = file.read()
+        print(text)
+
+
 
 name= input("what is ur name") 
 age= int(input("what is ur age"))
@@ -45,7 +55,9 @@ while True:
         print("4. collect item")
         print("5.clues")
         print("6.accuse")
-        print("7. quit")
+        print("7. Save game and Quit")
+        print("8. load game")
+        print("9. Quit")
 
     print()
     command = input("Enter a command: ")
@@ -53,7 +65,12 @@ while True:
     if game_started == False:
 
         if command == "1":
+            read_text_file("intro.txt")
+            print()
+            read_text_file("ohjeet.txt")
+            print()
             start_game()
+            print()
             game_started = True
 
         elif command == "2":
@@ -80,5 +97,17 @@ while True:
            accuse_someone()
 
         elif command=="7":
-         break
+            player.save_game(clues)
+            print("Game saved. Goodbye!")
+            break
+
+        elif command=="8":
+            player.load_game(rooms, clues)
+            print("Game loaded!")
+            print("Welcome back,", player.name)
+
+        elif command=="9":
+            print("Goodbye!")
+            break
  
+
